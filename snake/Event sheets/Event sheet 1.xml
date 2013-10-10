@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="DefaultTailExpiry" sid="9320763246589742" static="0" type="number">0</variable>
+        <event-block sid="1514567923173656">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="879172433601089" type="System">
+                    <param id="0" name="Interval (seconds)">0.4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="1862254302206839" type="SnakeTail">
+                    <param id="0" name="Instance variable">TimeToExpire</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="11" name="Set collisions enabled" sid="2780762698436341" type="SnakeHead">
+                    <param id="0" name="Collisions">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="2743821226058175" type="SnakeHead">
+                    <param id="0" name="Object">SnakeTail</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-17" name="Move forward" sid="3493226654721649" type="SnakeHead">
+                    <param id="0" name="Distance">20</param>
+                </action>
+                <action id="11" name="Set collisions enabled" sid="9895295798133707" type="SnakeHead">
+                    <param id="0" name="Collisions">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4154407187232114">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="849015046551031" type="SnakeTail">
+                    <param id="0" name="Instance variable">TimeToExpire</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="3080268463697211" type="SnakeTail" />
+            </actions>
+        </event-block>
+        <event-block sid="5581336676106373">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="447444526921955" type="Keyboard">
+                    <param id="0" name="Keycode">37</param>
+                </condition>
+                <condition id="-13" name="Is between angles" sid="9800001720588131" type="SnakeHead">
+                    <param id="0" name="First angle">10</param>
+                    <param id="1" name="Second angle">350</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="7806047514695776" type="SnakeHead">
+                    <param id="0" name="Angle">180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="14342412766433">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="531667452738475" type="Keyboard">
+                    <param id="0" name="Keycode">38</param>
+                </condition>
+                <condition id="-13" name="Is between angles" sid="288219256865917" type="SnakeHead">
+                    <param id="0" name="First angle">100</param>
+                    <param id="1" name="Second angle">80</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="6757946020195165" type="SnakeHead">
+                    <param id="0" name="Angle">270</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9827472868206634">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="9891016788951076" type="Keyboard">
+                    <param id="0" name="Keycode">39</param>
+                </condition>
+                <condition id="-13" name="Is between angles" sid="3346370398021806" type="SnakeHead">
+                    <param id="0" name="First angle">190</param>
+                    <param id="1" name="Second angle">170</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="2532615221958051" type="SnakeHead">
+                    <param id="0" name="Angle">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3996447029615586">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="9433983282761461" type="Keyboard">
+                    <param id="0" name="Keycode">40</param>
+                </condition>
+                <condition id="-13" name="Is between angles" sid="4273279035136586" type="SnakeHead">
+                    <param id="0" name="First angle">280</param>
+                    <param id="1" name="Second angle">260</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="3335378337707305" type="SnakeHead">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5394616114500455">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="1484574353383555" type="SnakeHead">
+                    <param id="0" name="Object">Food</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="427887613069016" type="Food" />
+                <action id="-11" name="Add to" sid="9508402767933446" type="SnakeTail">
+                    <param id="0" name="Instance variable">TimeToExpire</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="5466455416427389" type="System">
+                    <param id="0" name="Variable">DefaultTailExpiry</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="8194188491660229" type="System">
+                    <param id="0" name="Object to create">Food</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">ceil(random(1, 18)) *20 +10</param>
+                    <param id="3" name="Y">ceil(random(1, 18)) *20 +10</param>
+                </action>
+                <action id="0" name="Log Text" sid="4493746492782172" type="ChromeConsole">
+                    <param id="0" name="Data">Food.X</param>
+                </action>
+                <action id="0" name="Log Text" sid="1615786990630661" type="ChromeConsole">
+                    <param id="0" name="Data">Food.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2162845734209376">
+            <conditions>
+                <condition id="-18" name="On created" sid="145802129034376" type="SnakeTail" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="9059895898847379" type="SnakeTail">
+                    <param id="0" name="Instance variable">TimeToExpire</param>
+                    <param id="1" name="Value">DefaultTailExpiry</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1517557223884316">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="5418911042750758" type="SnakeHead">
+                    <param id="0" name="Object">HWall</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="7459110420174651" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="7542262499120029">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="5336787559380835" type="SnakeHead">
+                    <param id="0" name="Object">VWall</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="4913900585149937" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="9084376257456969">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="270320723192469" type="SnakeHead">
+                    <param id="0" name="Object">SnakeTail</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="4327557261379799" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="7420130123967419">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6264139657451974" type="System" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="2707636501872852" type="System" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
