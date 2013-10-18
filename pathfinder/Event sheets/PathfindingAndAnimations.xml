@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PathfindingAndAnimations</name>
+    <events>
+        <event-block sid="3677352074134199">
+            <conditions>
+                <condition id="-18" name="On created" sid="7833006012541065" type="Character" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="4072954953785279" type="Character">
+                    <param id="0" name="Pin to">Pathfinder</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2797005238843087">
+            <conditions>
+                <condition id="0" name="On click" sid="7277888396750225" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="4311600483069446" type="Pathfinder">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1566555838593483">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="5977926733005705" type="Pathfinder" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="3848475583069466" type="Pathfinder" />
+            </actions>
+        </event-block>
+        <event-block sid="8539221732270457">
+            <conditions>
+                <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="8376708546739851" type="Pathfinder" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5111598992683477">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="1307966302323621" type="Pathfinder">
+                            <param id="0" name="Within">30</param>
+                            <param id="1" name="Angle">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="889711076003045" type="Character">
+                            <param id="0" name="Animation">&quot;WalkSouth&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5840315756939958">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="3749207891197114" type="Pathfinder">
+                            <param id="0" name="Within">75</param>
+                            <param id="1" name="Angle">180</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="6470062469325803" type="Character">
+                            <param id="0" name="Animation">&quot;WalkWest&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9563139725200478">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="4737057440357444" type="Pathfinder">
+                            <param id="0" name="Within">30</param>
+                            <param id="1" name="Angle">270</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="6403996863303814" type="Character">
+                            <param id="0" name="Animation">&quot;WalkNorth&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3188692019496947">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="7189817259873154" type="Pathfinder">
+                            <param id="0" name="Within">75</param>
+                            <param id="1" name="Angle">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="1312408806146103" type="Character">
+                            <param id="0" name="Animation">&quot;WalkEast&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8625976875983812">
+            <conditions>
+                <condition behavior="Pathfinding" id="5" name="On arrived" sid="1549702157237438" type="Pathfinder" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7508383246696112">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="6042672358444718" type="Pathfinder">
+                            <param id="0" name="Within">30</param>
+                            <param id="1" name="Angle">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="210068359960977" type="Character" />
+                        <action id="4" name="Set animation" sid="8405337671156264" type="Character">
+                            <param id="0" name="Animation">&quot;IdleSouth&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4806956679026769">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="3125503732054989" type="Pathfinder">
+                            <param id="0" name="Within">75</param>
+                            <param id="1" name="Angle">180</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="9464020407018785" type="Character" />
+                        <action id="4" name="Set animation" sid="2684230323999781" type="Character">
+                            <param id="0" name="Animation">&quot;IdleWest&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7163726148591328">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="8127788621191759" type="Pathfinder">
+                            <param id="0" name="Within">30</param>
+                            <param id="1" name="Angle">270</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="9573166634926529" type="Character" />
+                        <action id="4" name="Set animation" sid="705836303405305" type="Character">
+                            <param id="0" name="Animation">&quot;IdleNorth&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9059456712160595">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="8687662979262198" type="Pathfinder">
+                            <param id="0" name="Within">75</param>
+                            <param id="1" name="Angle">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="6593391752313127" type="Character" />
+                        <action id="4" name="Set animation" sid="7643609223806961" type="Character">
+                            <param id="0" name="Animation">&quot;IdleEast&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
