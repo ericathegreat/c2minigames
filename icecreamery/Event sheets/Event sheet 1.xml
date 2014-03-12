@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="TotalScore" sid="877601363088495" static="0" type="number">0</variable>
+        <variable constant="0" name="NozzleSpeed" sid="8684150901348901" static="0" type="number">120</variable>
+        <event-block sid="4391665657048412">
+            <conditions>
+                <condition id="-18" name="On created" sid="7893783962116396" type="Nozzles" />
+            </conditions>
+            <actions>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="2269719205273118" type="Nozzles">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Speed">NozzleSpeed</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7388154686385613">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="1280504074450918" type="Nozzles">
+                    <param id="0" name="Object">Boundary</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="CustomMovement" id="1" name="Reverse" sid="7886520133910934" type="Nozzles">
+                    <param id="0" name="Axes">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1260812263034211">
+            <conditions>
+                <condition id="4" name="On key code pressed" sid="677821298961419" type="Keyboard">
+                    <param id="0" name="Keycode">32</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="9559648700487757" type="NozzleScoop">
+                    <param id="0" name="Animation">&quot;PushOut&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8559782005389538">
+            <conditions>
+                <condition id="4" name="On finished" sid="2098078787433719" type="NozzleScoop">
+                    <param id="0" name="Animation">&quot;PushOut&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="4993692250791268" type="NozzleScoop">
+                    <param id="0" name="Object">Scoops</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="8554046844004474" type="NozzleScoop">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3699194465889353">
+            <conditions>
+                <condition id="-18" name="On created" sid="5294056049952271" type="Scoops" />
+            </conditions>
+            <actions>
+                <action id="-26" name="Move to layer" sid="1075281444319803" type="Scoops">
+                    <param id="0" name="Layer">0</param>
+                </action>
+                <action id="-24" name="Move to top" sid="5390094992650107" type="NozzleScoop" />
+            </actions>
+        </event-block>
+        <event-block sid="6835709550676387">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="9121784773366907" type="MatcherZone">
+                    <param id="0" name="Object">Scoops</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="7838679627514585" type="MatcherZone">
+                    <param id="0" name="Instance variable">IngredientRequired</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">Scoops.Ingredient</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3481738850900145" type="System">
+                    <param id="0" name="Variable">TotalScore</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">MatcherZone.PickedCount</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="7747049268245066" type="System">
+                    <param id="0" name="Variable">TotalScore</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="0" name="Set text" sid="6380090532522302" type="Scoreboard">
+                    <param id="0" name="Text">TotalScore</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2057669517471791">
+            <conditions />
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
